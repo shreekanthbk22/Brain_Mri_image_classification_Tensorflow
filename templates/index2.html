@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Brain Tumour MRI Image Classification</title>
+ 
+ <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"-->
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="{{ url_for('contact') }}">About Us</a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">SSIT Tumkur</h3>
+      </div>
+       
+      <div class="jumbotron">
+      <img src="../static/brainlogo2.svg" alt="BTMIC Logo" width="180" height="180">
+        <h1 class="display-8">Brain Tumour MRI Image Classification</h1>
+
+        <h5 class="display-6">Our model can classify the uploaded image to one of the three groups:<br/></h5>
+        <b>
+           
+            1.MENINGIOMA  &nbsp;&nbsp;&nbsp;&nbsp;  2.GLIOMA &nbsp;&nbsp;&nbsp;&nbsp;    3.PITUITARY &nbsp;&nbsp;&nbsp;&nbsp;
+        </b>
+        
+      </div>
+  <form method=post action="http://localhost:5000/upload">
+    <div class="container">
+     <div class="col-md-8">
+     <div class="form-group">
+        <h3>Upload Image & click Predict</h3><p></p>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <span class="btn btn-success btn-file ">
+                    Browse… <input type="file" id="imgInp" name="file" required>
+                </span>
+            </span>
+            <input type="text" class="form-control" readonly>
+        </div>
+        <p>
+        <label class="col-form-label-lg" for="validatedCustomFile">Image File Preview...</label>
+        <img id='img-upload'/></p>
+    </div>
+
+<p>
+    <center>
+    <input class="btn btn-lg btn-info" type="submit" value="Predict"></center>
+ </p>
+     </div>
+     </div>
+  </form>
+<hr/>
+      
+      <footer class="footer">
+        <p>&copy; SSIT,CSE 2020</p>
+      </footer>
+
+    </div> 
+
+     </body>
+ <script> $(document).ready( function() {
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 	
+	});
+  
+  
+  </script>
+</html>

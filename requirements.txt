@@ -1,0 +1,8 @@
+numpy
+flask
+jinja2
+Werkzeug
+skimage
+matplotlib
+numpy
+tensorflow
