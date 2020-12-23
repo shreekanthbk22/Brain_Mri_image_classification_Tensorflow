@@ -1,9 +1,10 @@
 # Brain-MRI-image-classification<br>
-[view how it works](https://drive.google.com/file/d/12rxDCBRf_rAf6okQlgyin_rKgA2cnA-b/view?usp=sharing)
-tumored image classifier
+[view how it works](https://drive.google.com/file/d/12rxDCBRf_rAf6okQlgyin_rKgA2cnA-b/view?usp=sharing)<br/>
 
-Front end: HTML, CSS, Javascript, Jquery
+<h2>tumored image classifier</h2><br/>
 
-Backend: Python, Flask, jinja
+Front end: HTML, CSS, Javascript, Jquery<br/>
+
+Backend: Python, Flask, jinja<br/>
 
 libraries: Tensorflow
